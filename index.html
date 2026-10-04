@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aamir Zaib — Senior .NET Software Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy-dark:#0F2540; --navy:#1F3864; --gold:#D9A441; --gold-dark:#B4822F;
+  --bg:#FAFAF8; --surface:#FFFFFF; --text:#1B2430; --muted:#5B6472; --border:#E4E7ED;
+  --radius:6px;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit;}
+html{scroll-behavior:smooth; scroll-padding-top:70px;}
+body{margin:0; font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.55;}
+img{max-width:100%;}
+.wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
+
+/* NAV */
+header{position:sticky; top:0; z-index:50; background:rgba(250,250,248,0.92); backdrop-filter:blur(8px); border-bottom:1px solid var(--border);}
+nav{display:flex; align-items:center; justify-content:space-between; padding:16px 28px; max-width:1080px; margin:0 auto;}
+.brand{font-weight:800; color:var(--navy-dark); font-size:17px; letter-spacing:.2px; text-decoration:none;}
+.navlinks{display:flex; gap:28px;}
+.navlinks a{color:var(--muted); text-decoration:none; font-size:14.5px; font-weight:500;}
+.navlinks a:hover{color:var(--navy-dark);}
+
+/* HERO */
+.hero{background:var(--navy-dark); color:#fff; padding:76px 0 64px;}
+.hero-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:center;}
+.eyebrow{color:#9FB3D0; font-size:14.5px; font-weight:500; margin:0 0 14px;}
+.hero h1{font-size:44px; font-weight:800; line-height:1.12; margin:0 0 18px; letter-spacing:-0.5px;}
+.hero p.lede{color:#C3D1E5; font-size:17px; max-width:480px; margin:0 0 30px;}
+.cta-row{display:flex; gap:14px; flex-wrap:wrap;}
+.btn{display:inline-block; padding:12px 24px; border-radius:var(--radius); font-weight:600; font-size:14.5px; text-decoration:none; border:1px solid transparent;}
+.btn-gold{background:var(--gold); color:#1B2430;}
+.btn-gold:hover{background:var(--gold-dark);}
+.btn-outline{border-color:rgba(255,255,255,0.35); color:#fff;}
+.btn-outline:hover{border-color:#fff; background:rgba(255,255,255,0.06);}
+
+/* Architecture diagram (hero visual) */
+.diagram{display:flex; flex-direction:column; gap:10px;}
+.diagram .layer{border-radius:var(--radius); padding:16px 18px; font-size:13.5px; font-weight:600; border:1px solid rgba(255,255,255,0.12);}
+.diagram .layer small{display:block; font-weight:400; color:#A9BBD4; margin-top:3px; font-size:12px;}
+.layer.l1{background:rgba(217,164,65,0.14); margin-left:0; color:#F0DBAA;}
+.layer.l2{background:rgba(255,255,255,0.07); margin-left:18px; color:#DCE6F2;}
+.layer.l3{background:rgba(255,255,255,0.07); margin-left:36px; color:#DCE6F2;}
+.layer.l4{background:rgba(255,255,255,0.05); margin-left:54px; color:#B9C9DD;}
+.diagram-caption{font-size:12.5px; color:#8CA0BE; margin-top:10px;}
+
+/* SECTIONS */
+section{padding:64px 0;}
+h2{font-size:26px; font-weight:700; color:var(--navy-dark); margin:0 0 28px; letter-spacing:-0.2px;}
+
+/* ABOUT + SKILLS */
+.about-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px;}
+.about-grid p{color:var(--text); font-size:15.5px; margin:0 0 14px; max-width:60ch;}
+.skill-group{margin-bottom:16px;}
+.skill-group .label{font-size:13px; font-weight:700; color:var(--navy); margin-bottom:6px;}
+.skill-group .items{color:var(--muted); font-size:14px;}
+
+/* FEATURED PROJECT */
+.project-card{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden;}
+.project-head{padding:30px 32px 0;}
+.project-head .tag{display:inline-block; background:#EEF3FA; color:var(--navy); font-size:12.5px; font-weight:600; padding:4px 12px; border-radius:20px; margin-bottom:14px;}
+.project-head h3{font-size:22px; margin:0 0 10px; color:var(--navy-dark);}
+.project-head p{color:var(--muted); font-size:14.5px; max-width:70ch; margin:0 0 20px;}
+.project-links{display:flex; gap:12px; padding:0 32px 28px;}
+.project-links a{font-size:14px; font-weight:600; text-decoration:none; color:var(--navy); border:1px solid var(--border); padding:8px 16px; border-radius:var(--radius);}
+.project-links a.primary{background:var(--navy-dark); color:#fff; border-color:var(--navy-dark);}
+.project-points{border-top:1px solid var(--border); padding:26px 32px; display:grid; grid-template-columns:repeat(2,1fr); gap:18px 32px;}
+.project-points div{font-size:14px; color:var(--text);}
+.project-points strong{display:block; font-size:13px; color:var(--gold-dark); margin-bottom:3px; font-weight:700;}
+
+/* CONTACT */
+.contact{background:var(--navy-dark); color:#fff;}
+.contact h2{color:#fff;}
+.contact p{color:#C3D1E5; font-size:15.5px; max-width:52ch; margin:0 0 26px;}
+.contact-row{display:flex; gap:28px; flex-wrap:wrap;}
+.contact-row a{color:#fff; text-decoration:none; font-weight:600; font-size:14.5px; border-bottom:1px solid rgba(255,255,255,0.3); padding-bottom:2px;}
+.contact-row a:hover{border-color:#fff;}
+
+footer{padding:22px 0; text-align:center; color:var(--muted); font-size:13px;}
+
+@media (max-width:760px){
+  .hero-grid, .about-grid{grid-template-columns:1fr;}
+  .hero{padding:56px 0 44px;}
+  .hero h1{font-size:32px;}
+  .project-points{grid-template-columns:1fr;}
+  .navlinks{display:none;}
+  section{padding:48px 0;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="#top" class="brand">Aamir Zaib</a>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#project">Project</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Senior .NET Software Engineer · Team Lead</p>
+      <h1>Building enterprise systems that hold up under real business load.</h1>
+      <p class="lede">6+ years designing and shipping CRM, ERP, and e-commerce platforms in C# and ASP.NET Core — from database schema to production incident response.</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" href="#project">View My Project</a>
+        <a class="btn btn-outline" href="mailto:aamirzaib091@gmail.com">Get in Touch</a>
+      </div>
+    </div>
+    <div>
+      <div class="diagram">
+        <div class="layer l1">API<small>Controllers, Auth</small></div>
+        <div class="layer l2">Infrastructure<small>EF Core, Repositories</small></div>
+        <div class="layer l3">Application<small>Services, Business Logic</small></div>
+        <div class="layer l4">Domain<small>Entities, Core Rules</small></div>
+      </div>
+      <p class="diagram-caption">Onion Architecture — the pattern I build enterprise systems on.</p>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div>
+      <h2>About</h2>
+      <p>I'm a Senior .NET Software Engineer based in Islamabad, currently leading a team of developers building CRM-driven business portals. Over the past six years I've worked across ERP, asset management, e-commerce, and learning management systems — owning everything from API design to production troubleshooting.</p>
+      <p>Outside of day-to-day work, I build full systems end-to-end to keep my architecture and cloud skills sharp — MiniERP, below, is the most recent example: designed, built, and deployed entirely on my own.</p>
+    </div>
+    <div>
+      <div class="skill-group">
+        <div class="label">Languages &amp; Frameworks</div>
+        <div class="items">C#, .NET 8/10, ASP.NET Core, Entity Framework Core</div>
+      </div>
+      <div class="skill-group">
+        <div class="label">Architecture</div>
+        <div class="items">Clean/Onion Architecture, SOLID, Repository Pattern, DI</div>
+      </div>
+      <div class="skill-group">
+        <div class="label">Database</div>
+        <div class="items">SQL Server, Azure SQL, Stored Procedures</div>
+      </div>
+      <div class="skill-group">
+        <div class="label">Cloud &amp; DevOps</div>
+        <div class="items">Microsoft Azure, GitHub Actions CI/CD</div>
+      </div>
+      <div class="skill-group">
+        <div class="label">Emerging</div>
+        <div class="items">AI API Integration, Claude/LLM-powered features</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="project">
+  <div class="wrap">
+    <h2>Featured Project</h2>
+    <div class="project-card">
+      <div class="project-head">
+        <span class="tag">Full-Stack · Live in Production</span>
+        <h3>MiniERP — Enterprise Resource Planning System</h3>
+        <p>A complete sales-to-purchase ERP built from scratch in .NET 10: Clean Architecture, JWT auth, stock-aware order management, PDF invoicing, AI-powered natural language search, and a live Azure deployment with CI/CD.</p>
+      </div>
+      <div class="project-links">
+        <a class="primary" href="https://erp.aamirzaib.dev" target="_blank" rel="noopener">View Live Demo</a>
+        <a href="https://github.com/AamirZaib/MiniERP" target="_blank" rel="noopener">View Source Code</a>
+      </div>
+      <div class="project-points">
+        <div><strong>Architecture</strong>Onion Architecture across four layers, with Repository + Unit of Work and DTOs at every API boundary.</div>
+        <div><strong>Business Logic</strong>Stock-validated orders, purchase-order replenishment, status workflows, and one-click PDF invoicing.</div>
+        <div><strong>AI Search</strong>Natural-language search across products, customers and orders using the Claude API, with rate-limited cost control.</div>
+        <div><strong>Cloud Deployment</strong>Azure App Service + Azure SQL, GitHub Actions CI/CD, and a custom domain with managed SSL.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Let's talk</h2>
+    <p>Open to Senior .NET and backend engineering roles. Reach out by email or connect on LinkedIn — I usually reply within a day.</p>
+    <div class="contact-row">
+      <a href="mailto:aamirzaib091@gmail.com">aamirzaib091@gmail.com</a>
+      <a href="https://www.linkedin.com/in/aamirzaib" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/AamirZaib" target="_blank" rel="noopener">GitHub</a>
+      <a href="tel:+923366635111">+92 336 6635111</a>
+    </div>
+  </div>
+</section>
+
+<footer>&copy; 2026 Aamir Zaib. Built with .NET and hosted on Azure.</footer>
+
+</body>
+</html>
