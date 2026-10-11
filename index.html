@@ -63,8 +63,9 @@ h2{font-size:26px; font-weight:700; color:var(--navy-dark); margin:0 0 28px; let
 .skill-group .label{font-size:13px; font-weight:700; color:var(--navy); margin-bottom:6px;}
 .skill-group .items{color:var(--muted); font-size:14px;}
 
-/* FEATURED PROJECT */
+/* FEATURED PROJECTS */
 .project-card{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden;}
+.project-card + .project-card{margin-top:28px;}
 .project-head{padding:30px 32px 0;}
 .project-head .tag{display:inline-block; background:#EEF3FA; color:var(--navy); font-size:12.5px; font-weight:600; padding:4px 12px; border-radius:20px; margin-bottom:14px;}
 .project-head h3{font-size:22px; margin:0 0 10px; color:var(--navy-dark);}
@@ -83,7 +84,6 @@ h2{font-size:26px; font-weight:700; color:var(--navy-dark); margin:0 0 28px; let
 .contact-row{display:flex; gap:28px; flex-wrap:wrap;}
 .contact-row a{color:#fff; text-decoration:none; font-weight:600; font-size:14.5px; border-bottom:1px solid rgba(255,255,255,0.3); padding-bottom:2px;}
 .contact-row a:hover{border-color:#fff;}
-
 footer{padding:22px 0; text-align:center; color:var(--muted); font-size:13px;}
 
 @media (max-width:760px){
@@ -103,7 +103,7 @@ footer{padding:22px 0; text-align:center; color:var(--muted); font-size:13px;}
     <a href="#top" class="brand">Aamir Zaib</a>
     <div class="navlinks">
       <a href="#about">About</a>
-      <a href="#project">Project</a>
+      <a href="#project">Projects</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
@@ -116,7 +116,7 @@ footer{padding:22px 0; text-align:center; color:var(--muted); font-size:13px;}
       <h1>Building enterprise systems that hold up under real business load.</h1>
       <p class="lede">6+ years designing and shipping CRM, ERP, and e-commerce platforms in C# and ASP.NET Core — from database schema to production incident response.</p>
       <div class="cta-row">
-        <a class="btn btn-gold" href="#project">View My Project</a>
+        <a class="btn btn-gold" href="#project">View My Projects</a>
         <a class="btn btn-outline" href="mailto:aamirzaib091@gmail.com">Get in Touch</a>
       </div>
     </div>
@@ -137,7 +137,7 @@ footer{padding:22px 0; text-align:center; color:var(--muted); font-size:13px;}
     <div>
       <h2>About</h2>
       <p>I'm a Senior .NET Software Engineer based in Islamabad, currently leading a team of developers building CRM-driven business portals. Over the past six years I've worked across ERP, asset management, e-commerce, and learning management systems — owning everything from API design to production troubleshooting.</p>
-      <p>Outside of day-to-day work, I build full systems end-to-end to keep my architecture and cloud skills sharp — MiniERP, below, is the most recent example: designed, built, and deployed entirely on my own.</p>
+      <p>Outside of day-to-day work, I build full systems end-to-end to keep my architecture and cloud skills sharp. MiniERP, below, was designed, built, and deployed entirely on my own, and I have since rebuilt it as an event-driven microservices system to go deeper into distributed architecture.</p>
     </div>
     <div>
       <div class="skill-group">
@@ -146,7 +146,11 @@ footer{padding:22px 0; text-align:center; color:var(--muted); font-size:13px;}
       </div>
       <div class="skill-group">
         <div class="label">Architecture</div>
-        <div class="items">Clean/Onion Architecture, SOLID, Repository Pattern, DI</div>
+        <div class="items">Clean/Onion Architecture, Microservices, Event-Driven Design, Saga &amp; Outbox Patterns, SOLID, Repository Pattern, DI</div>
+      </div>
+      <div class="skill-group">
+        <div class="label">Messaging &amp; Observability</div>
+        <div class="items">RabbitMQ, MassTransit, YARP API Gateway, OpenTelemetry</div>
       </div>
       <div class="skill-group">
         <div class="label">Database</div>
@@ -154,7 +158,7 @@ footer{padding:22px 0; text-align:center; color:var(--muted); font-size:13px;}
       </div>
       <div class="skill-group">
         <div class="label">Cloud &amp; DevOps</div>
-        <div class="items">Microsoft Azure, GitHub Actions CI/CD</div>
+        <div class="items">Microsoft Azure, Docker, Docker Compose, GitHub Actions CI/CD</div>
       </div>
       <div class="skill-group">
         <div class="label">Emerging</div>
@@ -166,7 +170,8 @@ footer{padding:22px 0; text-align:center; color:var(--muted); font-size:13px;}
 
 <section id="project">
   <div class="wrap">
-    <h2>Featured Project</h2>
+    <h2>Featured Projects</h2>
+
     <div class="project-card">
       <div class="project-head">
         <span class="tag">Full-Stack · Live in Production</span>
@@ -182,6 +187,20 @@ footer{padding:22px 0; text-align:center; color:var(--muted); font-size:13px;}
         <div><strong>Business Logic</strong>Stock-validated orders, purchase-order replenishment, status workflows, and one-click PDF invoicing.</div>
         <div><strong>AI Search</strong>Natural-language search across products, customers and orders using the Claude API, with rate-limited cost control.</div>
         <div><strong>Cloud Deployment</strong>Azure App Service + Azure SQL, GitHub Actions CI/CD, and a custom domain with managed SSL.</div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-head">
+        <span class="tag">Backend · Microservices</span>
+        <h3>MiniErp.Microservices — Event-Driven Microservices</h3>
+        <p>MiniERP re-imagined as independent .NET 10 services (Identity, Catalog, Orders, Notifications) behind a YARP API Gateway, communicating through RabbitMQ and MassTransit, with a database per service.</p>
+      </div>
+      <div class="project-points">
+        <div><strong>Gateway &amp; Security</strong>YARP gateway with centralized JWT validation and role-based route policies; a dedicated Identity service issues the tokens.</div>
+        <div><strong>Messaging</strong>Event-driven communication with RabbitMQ and MassTransit, a Transactional Outbox, and idempotent consumers.</div>
+        <div><strong>Saga &amp; Consistency</strong>Order-processing Saga (state machine) with stock reservation and compensation, plus event-based data replication for eventual consistency.</div>
+        <div><strong>Reliability &amp; Observability</strong>Retry and circuit-breaker policies, health checks, OpenTelemetry distributed tracing, and a full Docker Compose setup.</div>
       </div>
     </div>
   </div>
